@@ -1,6 +1,6 @@
 function getContent(fragmentId, callback){
     var pages = {
-        home: "home.php",
+        login: "login.php",
         map: "map.php",
         table: "table.php",
         config: "config.php",
@@ -9,9 +9,7 @@ function getContent(fragmentId, callback){
     };
 
     var request = new XMLHttpRequest();
-    if(language == "en")
-        request.open("GET", "views/en/" + pages[fragmentId], true);
-    else if(language == "fr")
+    if(language == "fr")
         request.open("GET", "views/fr/" + pages[fragmentId], true);
     else if(language == "ar")
         request.open("GET", "views/ar/" + pages[fragmentId], true);
@@ -40,7 +38,7 @@ function getContent(fragmentId, callback){
                 case "logs.php":
                     document.getElementsByTagName("body")[0].style.backgroundImage = "";
                     break;
-                case "home.php":
+                case "login.php":
                     document.getElementsByTagName("body")[0].style.backgroundImage = "url('img/flag.jpg')";
                     break;
                 default:
@@ -60,7 +58,7 @@ function loadContent(){
 }
   
 if(!location.hash) {
-    location.hash = "#home";
+    location.hash = "#login";
 }
 loadContent();   
 window.addEventListener("hashchange", loadContent)
